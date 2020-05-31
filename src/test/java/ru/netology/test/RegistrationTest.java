@@ -33,18 +33,6 @@ public class RegistrationTest {
         $(".notification_status_error").waitUntil(visible, 5000);
         $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Пользователь заблокирован"));
     }
-
-    @Test
-    void submitFalsePassword() {
-        open("http://localhost:9999");
-        Registration userWithFalsePassword = getUserWithFalsePassword();
-        $("[name=login]").setValue(userWithFalsePassword.getLogin());
-        $("[name=password]").setValue(userWithFalsePassword.getPassword());
-        $(".button__text").click();
-        $(".notification_status_error").waitUntil(visible, 5000);
-        $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Неверно указан логин или пароль"));
-    }
-
     @Test
     void submitWithFalseLogin() {
         open("http://localhost:9999");
@@ -55,5 +43,14 @@ public class RegistrationTest {
         $(".notification_status_error").waitUntil(visible, 5000);
         $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Неверно указан логин или пароль"));
     }
-
+    @Test
+    void submitFalsePassword() {
+        open("http://localhost:9999");
+        Registration userWithFalsePassword = getUserWithFalsePassword();
+        $("[name=login]").setValue(userWithFalsePassword.getLogin());
+        $("[name=password]").setValue(userWithFalsePassword.getPassword());
+        $(".button__text").click();
+        $(".notification_status_error").waitUntil(visible, 5000);
+        $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Неверно указан логин или пароль"));
+    }
 }
