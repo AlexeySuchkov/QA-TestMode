@@ -7,7 +7,7 @@ import ru.netology.domain.Registration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.test.Generator.*;
+import static ru.netology.domain.Generator.*;
 
 
 public class RegistrationTest {
@@ -33,6 +33,7 @@ public class RegistrationTest {
         $(".notification_status_error").waitUntil(visible, 5000);
         $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Пользователь заблокирован"));
     }
+
     @Test
     void submitWithFalseLogin() {
         open("http://localhost:9999");
@@ -43,6 +44,7 @@ public class RegistrationTest {
         $(".notification_status_error").waitUntil(visible, 5000);
         $(".notification_visible[data-test-id=error-notification]").shouldHave(Condition.matchesText("Ошибка! Неверно указан логин или пароль"));
     }
+
     @Test
     void submitFalsePassword() {
         open("http://localhost:9999");

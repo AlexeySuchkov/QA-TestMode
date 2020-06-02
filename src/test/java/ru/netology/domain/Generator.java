@@ -1,11 +1,10 @@
-package ru.netology.test;
+package ru.netology.domain;
 
 import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import ru.netology.domain.Registration;
 
 import java.util.Locale;
 
